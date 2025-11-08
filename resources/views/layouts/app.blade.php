@@ -7,7 +7,6 @@
 
   <title>{{ $title ?? 'College Task Manager' }}</title>
 
-  {{-- Bootstrap CSS (CDN) --}}
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     rel="stylesheet">
@@ -21,7 +20,7 @@
 
 <body>
   {{-- Navbar --}}
-  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
     <div class="container container-narrow">
       <a class="navbar-brand" href="{{ url('/') }}">CTM</a>
 
@@ -36,29 +35,22 @@
           <li class="nav-item"><a class="nav-link" href="{{ url('/tasks') }}">Tasks</a></li>
         </ul>
 
-        {{-- sementara (belum ada auth beneran) --}}
-        <div class="d-flex gap-2">
-          <a class="btn btn-outline-primary btn-sm" href="{{ url('/login') }}">Login</a>
-          <a class="btn btn-primary btn-sm" href="{{ url('/register') }}">Register</a>
-
-        <div class="d-flex gap-2">
-        @auth
-          <span class="align-self-center small text-muted">Hi, {{ auth()->user()->name }}</span>
-          <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button class="btn btn-outline-danger btn-sm">Logout</button>
-          </form>
-        @endauth
-
-        @guest
-          <a class="btn btn-outline-primary btn-sm" href="{{ route('login') }}">Login</a>
-          <a class="btn btn-primary btn-sm" href="{{ route('register') }}">Register</a>
-        @endguest
-        </div>
+        <div class="d-flex gap-2 align-items-center">
+          @auth
+            <span class="small text-muted">Hi, {{ auth()->user()->name }}</span>
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button class="btn btn-outline-danger btn-sm">Logout</button>
+            </form>
+          @else
+            <a class="btn btn-outline-primary btn-sm" href="{{ route('login') }}">Login</a>
+            <a class="btn btn-primary btn-sm" href="{{ route('register') }}">Register</a>
+          @endauth
         </div>
       </div>
     </div>
   </nav>
+
 
 
   {{-- Flash message --}}
@@ -73,7 +65,7 @@
     @yield('content')
   </div>
 
-  {{-- Bootstrap JS --}}
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
