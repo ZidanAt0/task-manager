@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\DashboardController; // ✅ import controller dashboard
+use App\Http\Controllers\ScheduleController;
 
 // Route default ke dashboard, menggunakan controller agar $tugas tersedia
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -25,6 +26,9 @@ Route::middleware('auth')->group(function () {
     
     // 🔹 CRUD Tugas
     Route::resource('tugas', TugasController::class);
+
+    // 🔹 CRUD Schedule
+    Route::resource('schedules', ScheduleController::class);
 
     // 🔹 Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

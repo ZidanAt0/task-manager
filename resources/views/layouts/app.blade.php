@@ -33,6 +33,7 @@
           <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Dashboard</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url('/courses') }}">Courses</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url('/tasks') }}">Tasks</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('/schedules') }}">Schedules</a></li>
         </ul>
 
         <div class="d-flex gap-2 align-items-center">
