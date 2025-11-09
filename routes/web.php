@@ -2,12 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TugasController;
+use App\Http\Controllers\DashboardController; // ✅ import controller dashboard
 
-Route::get('/', function () {
-    return view('dashboard', [
-        'title' => 'Dashboard • CTM'
-    ]);
-});
+// Route default ke dashboard, menggunakan controller agar $tugas tersedia
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // auth guest
 Route::middleware('guest')->group(function () {
@@ -23,11 +22,13 @@ Route::middleware('guest')->group(function () {
 // auth user
 Route::middleware('auth')->group(function () {
     Route::get('/home', fn () => view('home', ['title' => 'Home • CTM']))->name('home');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-});
+    
+    // 🔹 CRUD Tugas
+    Route::resource('tugas', TugasController::class);
 
+    // 🔹 Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// logout
-Route::middleware('auth')->group(function () {
+    // 🔹 Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
