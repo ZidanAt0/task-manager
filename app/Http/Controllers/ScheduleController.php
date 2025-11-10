@@ -16,22 +16,23 @@ class ScheduleController extends Controller
         // Jadwal tetap dari Senin–Jumat
         $schedules = [
             'Senin' => [
-                ['mata_kuliah' => 'Pemrograman Web Lanjut', 'jam' => '07:00 - 09:30', 'ruangan' => 'Lab 2'],
-                ['mata_kuliah' => 'Kecerdasan Buatan', 'jam' => '09:30 - 12:00', 'ruangan' => 'Ruang 301'],
+                ['mata_kuliah' => 'Pemrograman Web Lanjut', 'jam' => '07:00 - 09:30', 'ruangan' => 'Lab R1'],
+                ['mata_kuliah' => 'Sistem Interaksi', 'jam' => '09:30 - 12:00', 'ruangan' => 'GIK C'],
             ],
             'Selasa' => [
-                ['mata_kuliah' => 'Basis Data', 'jam' => '07:00 - 09:30', 'ruangan' => 'Ruang 205'],
-                ['mata_kuliah' => 'Sistem Operasi', 'jam' => '13:00 - 15:30', 'ruangan' => 'Lab 1'],
+                ['mata_kuliah' => 'Sistem Informasi Geografis', 'jam' => '07:00 - 09:30', 'ruangan' => 'MIPAT A'],
+                ['mata_kuliah' => 'Sistem Pakar', 'jam' => '13:00 - 15:30', 'ruangan' => 'Lab 1'],
             ],
             'Rabu' => [
-                ['mata_kuliah' => 'Analisis dan Perancangan Sistem', 'jam' => '09:30 - 12:00', 'ruangan' => 'Ruang 202'],
+                ['mata_kuliah' => 'Pengenalan Pola', 'jam' => '09:30 - 12:00', 'ruangan' => 'GIK C'],
+                ['mata_kuliah' => 'Pengenalan Pola (R)', 'jam' => '13:00 - 15:30', 'ruangan' => 'GIK C'],
             ],
             'Kamis' => [
                 ['mata_kuliah' => 'Pemrograman Mobile', 'jam' => '07:00 - 09:30', 'ruangan' => 'Lab 3'],
-                ['mata_kuliah' => 'Metodologi Penelitian', 'jam' => '13:00 - 15:30', 'ruangan' => 'Ruang 303'],
+                ['mata_kuliah' => 'Metodologi Penelitian', 'jam' => '13:00 - 15:30', 'ruangan' => 'GIK L2'],
             ],
             'Jumat' => [
-                ['mata_kuliah' => 'Etika Profesi', 'jam' => '09:30 - 12:00', 'ruangan' => 'Ruang 201'],
+                ['mata_kuliah' => 'Pancasila', 'jam' => '09:30 - 12:00', 'ruangan' => 'GIK L2'],
             ],
         ];
 
